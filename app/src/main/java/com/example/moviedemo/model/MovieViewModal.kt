@@ -58,6 +58,7 @@ class MovieViewModal : ViewModel() {
             _status.value= MovieApiStatus.LOADING
             try {
                 _movieItem.value= RetrofitBuilder.apiService.getInfo().results
+                _status.value = MovieApiStatus.DONE
             }catch (e:Exception){
                 Log.d("viewModelScope", "error --> $e")
                 _status.value = MovieApiStatus.ERROR
