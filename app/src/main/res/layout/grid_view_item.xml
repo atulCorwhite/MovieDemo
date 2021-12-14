@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.example.moviedemo.model.Results" />
+
+        <variable
+            name="homeFragment"
+            type="com.example.moviedemo.movie.HomeFragment" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:onClick="@{()-> homeFragment.goToNextFragment()}"
+        app:cardUseCompatPadding="true" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/movieImage"
+            imageUrl="@{movie.poster_path}"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:onClick="@{()->homeFragment.goToNextFragment()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:text="@{movie.title}"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/movieImage"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/likeImage"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_baseline_favorite"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/date"
+            android:textColor="@color/black"
+            android:text="@{movie.release_date}"
+            android:layout_marginTop="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginStart="1dp"
+            android:id="@+id/rateText"
+            android:textColor="@color/black"
+            android:text="@{movie.voteAverage}"
+            android:layout_marginTop="1dp"
+            app:layout_constraintEnd_toEndOf="@+id/starImage"
+            app:layout_constraintTop_toTopOf="@+id/starImage"
+            app:layout_constraintBottom_toBottomOf="@+id/starImage"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/date"
+            android:src="@drawable/ic_baseline_star_24"
+            android:id="@+id/starImage"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
+</layout>

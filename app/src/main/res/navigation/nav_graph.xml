@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.moviedemo.movie.HomeFragment"
+        android:label="Home.."
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/home_to_detail"
+            app:destination="@+id/detailFragment"
+            app:popUpTo="@id/homeFragment" />
+
+        <action
+            android:id="@+id/homeToFavourite"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.moviedemo.movie.DetailsFragment"
+        android:label="Movie Detail"
+        tools:layout="@layout/fragment_home">
+        <argument
+            android:name="movieTitle"
+            app:argType="string" />
+        <argument
+            android:name="movieImageUrl"
+            app:argType="string" />
+        <argument
+            android:name="backdrop_path"
+            app:argType="string" />
+        <argument
+            android:name="original_language"
+            app:argType="string" />
+
+        <argument
+            android:name="movieReleaseDate"
+            app:argType="string" />
+        <argument
+            android:name="movieDescription"
+            app:argType="string" />
+        <argument
+            android:name="movieVoteAverage"
+            app:argType="string" />
+
+    </fragment>
+
+
+</navigation>
