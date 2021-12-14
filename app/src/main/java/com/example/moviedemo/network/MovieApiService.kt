@@ -11,7 +11,6 @@ interface MovieApiService {
     @GET("/3/movie/popular?api_key=aecfaa3cec82d0f9182bbf8e19b77f75")
     suspend fun getInfo(): MovieInfoResponse
 }
-
 private const val BASE_URL = "https://api.themoviedb.org"
 
 private val moshi = Moshi.Builder()
@@ -23,7 +22,5 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 object MovieApi {
-    val retrofitService: MovieApiService by lazy {
-        retrofit.create(MovieApiService::class.java)
-    }
+    val retrofitService: MovieApiService by lazy { retrofit.create(MovieApiService::class.java) }
 }

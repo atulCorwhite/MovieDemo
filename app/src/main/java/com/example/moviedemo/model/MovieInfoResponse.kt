@@ -6,7 +6,6 @@ data class MovieInfoResponse(
     val total_results: Int,
     val results: List<Results>
 )
-
 data class Results(
     val adult:Boolean,
     val backdrop_path:String,
@@ -21,8 +20,7 @@ data class Results(
     val title:String,
     val video:Boolean,
     val vote_average:Double,
-    val vote_count:Int
-)
+    val vote_count:Int)
 {
     fun getVoteAverage(): String = vote_average.toString()
 }
