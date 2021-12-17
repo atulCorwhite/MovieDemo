@@ -1,12 +1,11 @@
 package com.example.moviedemo.movie
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.moviedemo.R
 import com.example.moviedemo.databinding.FragmentHomeBinding
 import com.example.moviedemo.model.MovieViewModal
@@ -34,5 +33,21 @@ class HomeFragment: Fragment() {
         Toast.makeText(requireContext(), "goToNextFragment()", Toast.LENGTH_LONG).show()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+        when(item.itemId)
+        {R.id.favorite_page ->{
+                findNavController().navigate(R.id.homeToFavourite)
+            }
+            R.id.drama->{
+               // viewModel.getMovieByID()
+            }
+        }
+    }
 
 }
