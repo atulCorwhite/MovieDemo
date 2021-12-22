@@ -33,7 +33,6 @@ class DetailsFragment:Fragment() {
             movieVoteAverage=it.getString(MOVIEVOTEAVERAGE).toString()
         }
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Overview"
@@ -46,7 +45,6 @@ class DetailsFragment:Fragment() {
         viewModal.movieVoteAverage.value=movieVoteAverage
 
     }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding=FragmentDetailsBinding.inflate(inflater,container,false)
         binding.viewModal
@@ -54,7 +52,6 @@ class DetailsFragment:Fragment() {
 
         return binding.root
     }
-
     companion object {
         const val MOVIETITLE = "movieTitle"
         const val MOVIEIMAGEURL = "movieImageUrl"

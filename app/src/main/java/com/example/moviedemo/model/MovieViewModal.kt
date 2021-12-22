@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.moviedemo.network.MovieApi
 import com.example.moviedemo.network.RetrofitBuilder
 import kotlinx.coroutines.launch
 
@@ -39,21 +38,6 @@ class MovieViewModal : ViewModel() {
     }
 
     private fun getMovie() {
-   /*     viewModelScope.launch {
-            _status.value=MovieApiStatus.LOADING
-            try {
-                _movieItem.value= MovieApi.retrofitService.getInfo().results
-                _status.value = MovieApiStatus.DONE
-            }
-            catch (e:Exception){
-                Log.d("viewModelScope", "error --> $e")
-                _status.value = MovieApiStatus.ERROR
-                movieItem.value = listOf()
-
-            }
-
-        }
-*/
         viewModelScope.launch {
             _status.value= MovieApiStatus.LOADING
             try {
@@ -65,6 +49,14 @@ class MovieViewModal : ViewModel() {
                 movieItem.value = listOf()
             }
         }
+
+    }
+
+    fun getMovieByID(id: Int?) {
+
+    }
+
+    fun sortMoviesByReleasedDate() {
 
     }
 

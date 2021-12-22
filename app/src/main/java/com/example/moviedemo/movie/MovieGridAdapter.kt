@@ -32,7 +32,16 @@ class MovieGridAdapter(var flag: String) : ListAdapter<Results, MovieGridAdapter
                     }
                 }
                 else{
-
+         /*        action=HomeFragmentDirections.homeToFavourite(
+                     item.title,
+                     item.poster_path,
+                     item.release_date,
+                     item.overview,
+                     item.vote_average.toString(),
+                     item.isFavMovie.toString(),
+                     item.backdrop_path,
+                     item.movieType.toString()
+                 )*/
                 }
             }
         }

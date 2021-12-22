@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.moviedemo.R
 import com.example.moviedemo.databinding.FragmentHomeBinding
+import com.example.moviedemo.model.MovieType
 import com.example.moviedemo.model.MovieViewModal
 
 
@@ -32,7 +33,6 @@ class HomeFragment: Fragment() {
 //        findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
         Toast.makeText(requireContext(), "goToNextFragment()", Toast.LENGTH_LONG).show()
     }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu, menu)
@@ -42,10 +42,70 @@ class HomeFragment: Fragment() {
         return super.onOptionsItemSelected(item)
         when(item.itemId)
         {R.id.favorite_page ->{
-                findNavController().navigate(R.id.homeToFavourite)
+                findNavController().navigate(R.id.favouriteFragment)
             }
             R.id.drama->{
-               // viewModel.getMovieByID()
+                viewModel.getMovieByID(MovieType.DRAMA.id)
+            }
+            R.id.history->{
+                viewModel.getMovieByID(MovieType.HISTORY.id)
+            }
+            R.id.war->{
+                viewModel.getMovieByID(MovieType.WAR.id)
+            }
+            R.id.western->{
+                viewModel.getMovieByID(MovieType.WESTERN.id)
+            }
+            R.id.thriller->{
+                viewModel.getMovieByID(MovieType.THRILLER.id)
+            }
+            R.id.tv_movie->{
+                viewModel.getMovieByID(MovieType.TV_MOVIE.id)
+            }
+            R.id.science_fiction->{
+                viewModel.getMovieByID(MovieType.SCIENCE_FICTION.id)
+            }
+            R.id.romance->{
+                viewModel.getMovieByID(MovieType.ROMANCE.id)
+            }
+            R.id.mystery->{
+                viewModel.getMovieByID(MovieType.MYSTERY.id)
+            }
+            R.id.music->{
+                viewModel.getMovieByID(MovieType.MUSIC.id)
+            }
+            R.id.horror->{
+                viewModel.getMovieByID(MovieType.HORROR.id)
+            }
+            R.id.fantasy->{
+                viewModel.getMovieByID(MovieType.FANTASY.id)
+            }
+            R.id.family->{
+                viewModel.getMovieByID(MovieType.FAMILY.id)
+            }
+            R.id.documentary->{
+                viewModel.getMovieByID(MovieType.FAMILY.id)
+            }
+            R.id.action->{
+                viewModel.getMovieByID(MovieType.ACTION.id)
+            }
+            R.id.adventure->{
+                viewModel.getMovieByID(MovieType.ADVENTURE.id)
+            }
+            R.id.crime->{
+                viewModel.getMovieByID(MovieType.CRIME.id)
+            }
+            R.id.animation->{
+                viewModel.getMovieByID(MovieType.ANIMATION.id)
+            }
+            R.id.comedy->{
+                viewModel.getMovieByID(MovieType.COMEDY.id)
+            }
+            R.id.no_filter->{
+                viewModel.getMovieByID(null)
+            }
+            R.id.sort_released_date->{
+                viewModel.sortMoviesByReleasedDate()
             }
         }
     }
